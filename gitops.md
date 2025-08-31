@@ -23,3 +23,12 @@ What are the 4 Gitops Principles ?
 
 4 Continously Reconciled - Software agents continously observe actual system state and attempt to apply the desired state
 
+GitOps is not for kubernetes only , But most of the popular gitops tools like ArgoCD and Flux target kubernetes
+
+Advantages of Gitops ?
+
+(1) Security (unwanted changes are removed)
+(2) Versioning (track changes)
+(3) Auto Upgrades
+(4) Auto Healing of any unwanted changes
+(5) Continous reconciliation
