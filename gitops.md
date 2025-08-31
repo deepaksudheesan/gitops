@@ -53,13 +53,13 @@ Maintains state between git and kubernetes (continously monitors state inbetween
 GitOps Architecure ?
 
 
-Repo Server - Microservice connect to git and get state of the application
+1) Repo Server - Microservice connect to git and get state of the application
 
-Application controller - Microservice connect k8s and get the state
+2) Application controller - Microservice connect k8s and get the state
 
-API server - Microservuce used by user to communiate to ArgocD via UI or CLI, Should handle authentication (SSO,OIDC,LDAP,Dex default light weight OIDC)
+3) API server - Microservuce used by user to communiate to ArgocD via UI or CLI, Should handle authentication (SSO,OIDC,LDAP,Dex default light weight OIDC)
 
-Redis - Microservice for cacheing (suppose one component controller (stateful set) is down when it comes back up need data)
+4) Redis - Microservice for cacheing (suppose one component controller (stateful set) is down when it comes back up need data
 
 
 
