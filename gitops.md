@@ -190,3 +190,39 @@ argocd-secret                 Opaque   5      50m
 
 ![alt text](image-3.png)
 
+We will get example for handon from this repo
+
+https://github.com/argoproj/argocd-example-apps
+
+We can use guestbook for k8s manifest or helm-guestbook for installing application as helm chart using Arogocd.
+
+Click on create application
+Example of Application set generator (used to generate multipple application at once only cluster URL differs will loop through it for loop)
+
+
+![alt text](image-4.png)
+
+
+Automatic display of path is not 100% accurate guestbook so always copy from git repo here it is guestbook
+
+![alt text](image-5.png)
+![alt text](image-6.png)
+
+click on create
+
+![alt text](image-7.png)
+
+ArgoCD will pick the application deployment yaml and service yaml and it will deploy on the kubernetes cluster
+
+```
+ Deepak S   deepaks    kubectl get deployments                                                                        in pwsh at 17:09:07
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE
+guestbook-ui   1/1     1            1           2m
+ Deepak S   deepaks     
+```
+
+![alt text](image-8.png)
+
+![alt text](image-9.png)
+
+4 Gitops Principles applied Eg :- Continously Reconciled 
