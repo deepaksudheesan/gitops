@@ -3,4 +3,22 @@ Gitops uses GIT as a single source of truth to deliver applications and infrastr
 
 ![alt text](image.png)
 
+Why to use Gitops ?
+Provides details versioning/tracking/auditing 
+Eg:- about changes by which user
+
+In deployment we use git pull request verified by others and using  gitops controller (ArgoCD) applications are deployment
+GitOps Application and Infrastructure
+
+Mangaging large infra requires (100's K8s cluster) gitops add more value.
+
+What are the 4 Gitops Principles ?
+
+1 Decalrative - system managed by GitOps must have its desired state expressed declaratively (cide in config is always deployed in cluster)
+
+2 Versioned and Immutable - Desired state is stored in a way that enforces immutability, versioning and retains a complete version history. 
+
+3 Pulled Automatically - Software agents automatically pull the desired state decalrations from the source 
+
+4 Continously Reconciled - Software agents continously observe actual system state and attempt to apply the desired state
 
