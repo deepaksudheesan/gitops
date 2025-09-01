@@ -15,6 +15,8 @@ Mangaging large infra requires (100's K8s cluster) gitops add more value.
 
 What are the 4 Gitops Principles ?
 
+https://opengitops.dev/
+
 1 Decalrative - system managed by GitOps must have its desired state expressed declaratively (cide in config is always deployed in cluster)
 
 2 Versioned and Immutable - Desired state is stored in a way that enforces immutability, versioning and retains a complete version history. 
