@@ -226,3 +226,85 @@ guestbook-ui   1/1     1            1           2m
 ![alt text](image-9.png)
 
 4 Gitops Principles applied Eg :- Continously Reconciled 
+
+ArgoCD is not openiated , AgroCD leaves upto the users or the DevOps engineers how to store thier deployments services or yaml manifests in git repository plain or helm chart
+
+Delete the application
+
+ ![alt text](image-10.png)
+
+We will install application using helm
+
+We can pass custom values.yaml here in helm section
+![alt text](image-11.png)
+
+ 
+How to use ArgoCD in CLI method ?
+(In some cases cloud with low config not able to do tunneling or Load balancer IP)
+
+Download ArgoCD cli
+https://argo-cd.readthedocs.io/en/stable/getting_started/ 
+
+
+https://github.com/argoproj/argo-cd/releases/tag/v3.1.1
+
+![alt text](image-12.png)
+
+Common command can be found here search with ArgoCD command references.
+
+https://argo-cd.readthedocs.io/en/latest/user-guide/commands/argocd/
+
+We can get examples by clicking respective section  Eg:- argocd-app-create
+
+https://argo-cd.readthedocs.io/en/latest/user-guide/commands/argocd_app_create/
+
+We need to do login first using tunneling IP address and port
+
+```
+ Deepak S   deepaks     argocd app create guestbook --repo https://github.com/argoproj/argocd-example-apps.git --path guestbook --dest-namespace default --dest-server https://kubernetes.default.svc --directory-recurse
+{"level":"fatal","msg":"Argo CD server address unspecified","time":"2025-09-01T14:21:36+05:30"}
+
+
+ Deepak S   deepaks    argocd login https://127.0.0.1:65402/                                                          in pwsh at 14:21:36
+{"level":"fatal","msg":"dial tcp: address https://127.0.0.1:65402/: too many colons in address","time":"2025-09-01T14:23:11+05:30"}
+ Deepak S   deepaks            
+```
+
+
+```
+ Deepak S   deepaks    argocd login 127.0.0.1:52854                                                                   in pwsh at 14:29:38
+WARNING: server certificate had error: tls: failed to verify certificate: x509: certificate signed by unknown authority. Proceed insecurely (y/n)? y
+Username: admin
+Password:
+'admin:login' logged in successfully
+Context '127.0.0.1:52854' updated
+ Deepak S   deepaks        
+
+```
+Now we can execute ArgoCD command line to install applications
+
+
+```
+ Deepak S   deepaks     argocd app create guestbook --repo https://github.com/argoproj/argocd-example-apps.git --path guestbook --dest-namespace default --dest-server https://kubernetes.default.svc --directory-recurse
+application 'guestbook' created
+```
+
+We didnt enabled automatic sync in CLI, enabled it using UI sync
+
+```
+ Deepak S   deepaks    kubectl get application -n argocd                                                              in pwsh at 14:35:04
+NAME        SYNC STATUS   HEALTH STATUS
+guestbook   OutOfSync     Missing
+```
+
+ Sync app using --sync-policy automatic
+
+```
+ Deepak S   deepaks     argocd app create guestbook --repo https://github.com/argoproj/argocd-example-apps.git --path guestbook --dest-namespace default --dest-server https://kubernetes.default.svc --directory-recurse --sync-policy automatic
+application 'guestbook' created
+ Deepak S   deepaks          
+```
+
+How to install ArgoCD using Helmchart
+
+https://github.com/argoproj/argo-helm
