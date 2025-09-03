@@ -333,6 +333,6 @@ HubSpoke
 
 We will have centrailized Kubernetes cluster Called Hub ArgoCD instance (will be watching chanhges in Git) using this we will deploy application into multipple Kubernetes cluster (Spoke) Eg:- Dev,Stage,Preprod,Production (These will not have individual ArgoCD Instances)
 
-![alt text](image-15.png)
+![alt text](image-16.png)
 
 
