@@ -310,3 +310,29 @@ application 'guestbook' created
 How to install ArgoCD using Helmchart
 
 https://github.com/argoproj/argo-helm
+
+
+ArgoCD Multicluster Deployment
+
+A multi-cluster deployment with ArgoCD means using a single ArgoCD instance to deploy and manage applications on multiple Kubernetes clusters, not just the cluster ArgoCD itself is running on.
+
+Two Modes of ArgoCD deployment
+
+1 Hub Spoke Model
+2 Standalone Model
+
+Stanadalone
+
+If we have seperate ArgoCD for each environment (Dev Stage and QA), Each ArgoCD instance is responisble for only that particular cluster
+
+![alt text](image-14.png)
+
+
+
+HubSpoke
+
+We will have centrailized Kubernetes cluster Called Hub ArgoCD instance (will be watching chanhges in Git) using this we will deploy application into multipple Kubernetes cluster (Spoke) Eg:- Dev,Stage,Preprod,Production (These will not have individual ArgoCD Instances)
+
+![alt text](image-15.png)
+
+
